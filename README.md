@@ -9,7 +9,6 @@ Coffee & Wi-fi Finder is a full-stack web application built using Flask that hel
 The goal of this project is to provide a simple and user-friendly way to explore cafes based on essential work-friendly features. It solves a real-world problem for students, freelancers, and remote workers.
 
 ---
-![20260324-1449-34 4319864](https://github.com/user-attachments/assets/c4ecabf5-9c9b-409e-81be-b738dbd23430)
 
 ## ⚙️ Technology Stack
 
