@@ -34,6 +34,7 @@ The goal of this project is to provide a simple and user-friendly way to explore
 * ✨ Smooth animations and hover effects
 
 ---
+![20260324-1501-40 9890503](https://github.com/user-attachments/assets/7c801228-9765-4d7b-8ef5-bd44808cd76d)
 
 ## 🧠 How It Works
 
@@ -46,6 +47,8 @@ The goal of this project is to provide a simple and user-friendly way to explore
 ---
 
 ## 🎨 UI/UX Design
+![20260324-1500-04 8273063](https://github.com/user-attachments/assets/f1cd08ed-bcd4-4776-affc-a7be043cc840)
+
 
 The interface follows a **cozy premium theme**, focusing on:
 
