@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+
+{% block title %}Add A New Cafe{% endblock %}
+
+{% block content %}
+
+<style>
+    body {
+        background-color: #f5f1ea;
+        font-family: 'Open Sans', sans-serif;
+        color: #2e2e2e;
+    }
+
+    .form-wrapper {
+        max-width: 600px;
+        margin: 60px auto;
+    }
+
+    .form-card {
+        background: #ffffff;
+        padding: 35px 30px;
+        border-radius: 16px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    .form-title {
+        font-family: 'Playfair Display', serif;
+        color: #6f4e37;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .form-group {
+        margin-bottom: 18px;
+    }
+
+    label {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #5a3d2b;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        font-size: 0.95rem;
+        transition: 0.2s ease;
+    }
+
+    input:focus {
+        outline: none;
+        border-color: #c8a27a;
+        box-shadow: 0 0 0 2px rgba(200,162,122,0.2);
+    }
+
+    .error {
+        color: red;
+        font-size: 0.8rem;
+    }
+
+    .submit-btn {
+        width: 100%;
+        background-color: #6f4e37;
+        color: white;
+        border: none;
+        padding: 12px;
+        border-radius: 25px;
+        font-size: 1rem;
+        transition: 0.3s ease;
+        cursor: pointer;
+    }
+
+    .submit-btn:hover {
+        background-color: #5a3d2b;
+        transform: scale(1.02);
+    }
+
+    .back-link {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        font-size: 0.9rem;
+        text-decoration: none;
+        color: #6f4e37;
+    }
+
+    .back-link:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="form-wrapper">
+    <div class="form-card">
+
+        <h2 class="form-title">Add a new cafe into the database</h2>
+
+        <form method="POST">
+            {{ form.hidden_tag() }}
+
+            <div class="form-group">
+                <label>{{ form.CafeName.label }}</label>
+                {{ form.CafeName() }}
+                {% for error in form.CafeName.errors %}
+                    <div class="error">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                <label>{{ form.Location.label }}</label>
+                {{ form.Location() }}
+                {% for error in form.Location.errors %}
+                    <div class="error">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                <label>{{ form.Opening.label }}</label>
+                {{ form.Opening() }}
+                {% for error in form.Opening.errors %}
+                    <div class="error">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                <label>{{ form.Closing.label }}</label>
+                {{ form.Closing() }}
+                {% for error in form.Closing.errors %}
+                    <div class="error">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                <label>{{ form.CoffeRating.label }}</label>
+                {{ form.CoffeRating() }}
+                {% for error in form.CoffeRating.errors %}
+                    <div class="error">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                <label>{{ form.WifiStrength.label }}</label>
+                {{ form.WifiStrength() }}
+                {% for error in form.WifiStrength.errors %}
+                    <div class="error">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                <label>{{ form.Power.label }}</label>
+                {{ form.Power() }}
+                {% for error in form.Power.errors %}
+                    <div class="error">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <button type="submit" class="submit-btn">Add Cafe</button>
+        </form>
+
+        <a class="back-link" href="{{ url_for('cafes') }}">See all cafes</a>
+
+    </div>
+</div>
+
+{% endblock %}

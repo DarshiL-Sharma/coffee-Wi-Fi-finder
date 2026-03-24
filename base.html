@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+    {% block styles %}
+    <style>
+        /* 📌 FIXED STICKY FOOTER */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    background: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+
+    font-size: 0.85rem;
+    color: #777;
+
+    box-shadow: 0 -3px 12px rgba(0,0,0,0.08);
+
+    /* ✨ subtle animation */
+    animation: slideUp 0.6s ease;
+}
+
+/* smooth entry animation */
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+        /* 🔥 GLOBAL ANIMATIONS */
+
+/* Page fade-in */
+body {
+    animation: pageFade 0.6s ease;
+}
+
+@keyframes pageFade {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Card hover animation (works everywhere) */
+.cafe-card, .hero-card, .form-card {
+    transition: all 0.35s ease;
+}
+
+.cafe-card:hover, .hero-card:hover, .form-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+}
+
+/* Button animation */
+.btn-custom, .submit-btn {
+    transition: all 0.3s ease;
+}
+
+.btn-custom:hover, .submit-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 10px 25px rgba(111,78,55,0.3);
+}
+
+/* Navbar link animation */
+.nav-links a {
+    position: relative;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: -4px;
+    background-color: #6f4e37;
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+        body {
+            margin: 0;
+            background-color: #f5f1ea;
+            font-family: 'Open Sans', sans-serif;
+            color: #2e2e2e;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: #6f4e37;
+        }
+
+        .nav-links a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #2e2e2e;
+            font-size: 0.95rem;
+            transition: 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #6f4e37;
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            font-size: 0.85rem;
+            color: #777;
+        }
+    </style>
+    {% endblock %}
+
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+
+<!-- 🌟 NAVBAR -->
+<div class="navbar">
+    <div class="nav-logo">☕ Coffee & Wi-fi</div>
+    <div class="nav-links">
+        <a href="/">🏠Home</a>
+        <a href="/cafes">☕Cafe's</a>
+        <a href="/add">➕Add Cafe</a>
+    </div>
+</div>
+
+<!-- 🔽 PAGE CONTENT -->
+{% block content %}{% endblock %}
+
+<!-- 🌙 FOOTER -->
+<div class="footer">
+    © 2026 Made with ❤️ by Darshil Sharma • Find your perfect workspace ☕💻
+</div>
+
+</body>
+</html>

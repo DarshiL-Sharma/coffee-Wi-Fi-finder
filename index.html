@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% block title %}Coffee and Wifi{% endblock %}
+
+{% block content %}
+
+<style>
+    body {
+        background: linear-gradient(135deg, #f5f1ea 0%, #efe7dc 100%);
+        font-family: 'Open Sans', sans-serif;
+        color: #2e2e2e;
+    }
+
+    .hero {
+        min-height: 85vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .hero-card {
+        background: #ffffff;
+        padding: 60px 50px;
+        border-radius: 22px;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        max-width: 750px;
+        width: 100%;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+
+    /* subtle glow effect */
+    .hero-card::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(200,162,122,0.1), transparent 60%);
+        z-index: 0;
+    }
+
+    .hero-card * {
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+    }
+
+    .hero h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 3.2rem;
+        margin-bottom: 20px;
+        color: #6f4e37;
+        letter-spacing: 1px;
+    }
+
+    .hero p {
+        font-size: 1.08rem;
+        margin-bottom: 18px;
+        line-height: 1.6;
+    }
+
+    .divider {
+        width: 70px;
+        height: 4px;
+        background: linear-gradient(to right, #c8a27a, #6f4e37);
+        margin: 25px auto;
+        border-radius: 5px;
+    }
+
+    .btn-custom {
+        background: linear-gradient(135deg, #6f4e37, #5a3d2b);
+        color: white;
+        padding: 13px 32px;
+        border-radius: 30px;
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 15px;
+        box-shadow: 0 5px 15px rgba(111,78,55,0.2);
+    }
+
+    .btn-custom:hover {
+        transform: scale(1.07);
+        box-shadow: 0 8px 25px rgba(111,78,55,0.3);
+    }
+
+    /* subtle fade-in animation */
+    .hero-card {
+        animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+
+<div class="hero">
+    <div class="hero-card">
+
+        <h1>Coffee & Wi-fi</h1>
+
+        <p>Want to work in a cafe but need power and wi-fi? This Website is best for you to exploring new Cafe's to Work!</p>
+
+        <div class="divider"></div>
+
+        <p>You've found the right place! Checkout my collection of cafe's with data on power socket availability, wi-fi speed and coffee quality.</p>
+
+        <a class="btn-custom" href="{{ url_for('cafes') }}">Show Me!</a>
+
+    </div>
+</div>
+
+{% endblock %}

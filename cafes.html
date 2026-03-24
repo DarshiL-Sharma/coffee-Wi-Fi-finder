@@ -1,0 +1,121 @@
+
+{% extends 'base.html' %}
+{% block title %}Restaurants{% endblock %}
+
+{% block content %}
+
+<style>
+    body {
+        background-color: #f5f1ea;
+        font-family: 'Open Sans', sans-serif;
+        color: #2e2e2e;
+    }
+
+    .container-custom {
+        max-width: 1200px;
+        margin: auto;
+        padding: 40px 20px;
+    }
+
+    h1 {
+        text-align: center;
+        font-family: 'Playfair Display', serif;
+        color: #6f4e37;
+        margin-bottom: 40px;
+    }
+
+    .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+
+    .cafe-card {
+        background: #ffffff;
+        border-radius: 18px;
+        padding: 22px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        transition: 0.3s ease;
+    }
+
+    .cafe-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+    }
+
+    .cafe-name {
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: #6f4e37;
+        margin-bottom: 12px;
+    }
+
+    .cafe-info {
+        font-size: 0.95rem;
+        margin: 6px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .map-link {
+        padding: 5px 10px;
+        background-color: #c8a27a;
+        color: white;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        text-decoration: none;
+        transition: 0.2s ease;
+    }
+
+    .map-link:hover {
+        background-color: #a67c52;
+    }
+
+    .back-link {
+        display: block;
+        text-align: center;
+        margin-top: 40px;
+        text-decoration: none;
+        color: #6f4e37;
+        font-weight: 500;
+    }
+
+    .back-link:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="container-custom">
+
+    <h1>All Cafes</h1>
+
+    <div class="card-grid">
+
+        {% for row in data.values %}
+        <div class="cafe-card">
+
+            <div class="cafe-name">{{ row[0] }}</div>
+
+            <!-- FIXED LOCATION -->
+            <div class="cafe-info">
+                <span>📍 Location</span>
+                <a href="{{ row[1] }}" target="_blank" class="map-link">View</a>
+            </div>
+
+            <div class="cafe-info">🕒 Open: {{ row[2] }}</div>
+            <div class="cafe-info">🔒 Close: {{ row[3] }}</div>
+            <div class="cafe-info">☕ Coffee: {{ row[4] }}</div>
+            <div class="cafe-info">📶 Wifi: {{ row[5] }}</div>
+            <div class="cafe-info">🔌 Power: {{ row[6] }}</div>
+
+        </div>
+        {% endfor %}
+
+    </div>
+
+    <a class="back-link" href="{{ url_for('home') }}">Home page</a>
+
+</div>
+
+{% endblock %}
